@@ -72,6 +72,11 @@ const appVue = new Vue({
                     window.location.replace('/orderPlaced')
                 }
             })
+        },
+        deleteCart() {
+            window.localStorage.setItem("cart_infor", JSON.stringify({"list": []}))
+            this.cart_infor = {"list": []}
+            window.location.reload()
         }
     }
 })
