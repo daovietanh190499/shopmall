@@ -59,6 +59,7 @@ const appVue = new Vue({
             }
             window.localStorage.setItem("cart_infor", JSON.stringify(cart_infor))
             this.cart_infor = cart_infor
+            window.location.reload()
         },
         placeOrder() {
             fetch(`https://script.google.com/macros/s/AKfycbw7JpGnyfg5JjmA-jaEKX5X-bs87xyEm0j4EsYgMor7a4BUyDHuU94JRduU1UJAoSvJ/exec?name=${this.user.name}&phone=${this.user.phone}&email=${this.user.email}&address=${this.user.address}&order_content=${window.localStorage.getItem("cart_infor")}`)
