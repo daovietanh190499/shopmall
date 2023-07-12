@@ -91,7 +91,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
         <div id="cartMainContainer" v-else-if="paths[0] === 'cart'">
@@ -108,7 +107,7 @@
                     </div>
                 </div>
 
-                <div id="totalContainer">
+                <div id="totalContainer" v-if="cart_infor.list.length > 0">
                     <div id="total">
                         <h2>Thông Tin Đơn Hàng</h2>
                         <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
