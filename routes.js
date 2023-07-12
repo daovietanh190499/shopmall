@@ -19,7 +19,8 @@ const appVue = new Vue({
             let rows = convert(table.childNodes[0])
             this.productList = rows
 
-            this.cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : JSON.stringify({"list": []}))
+            let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : JSON.stringify({"list": []}))
+            this.cart_infor = cart_infor
             document.getElementById("badge").innerHTML = cart_infor.list.length
 
             let totalAmount = 0
