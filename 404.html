@@ -110,6 +110,7 @@
                 <div id="totalContainer" v-if="cart_infor.list.length > 0">
                     <div id="total">
                         <h2>Thông Tin Đơn Hàng</h2>
+                        <form method="GET" action="https://script.google.com/macros/s/AKfycbw7JpGnyfg5JjmA-jaEKX5X-bs87xyEm0j4EsYgMor7a4BUyDHuU94JRduU1UJAoSvJ/exec">
                         <div>
                             <input type="text" name="name" placeholder="Họ và Tên" required>
                         </div>
@@ -122,12 +123,14 @@
                         <div>
                             <input type="text" name="address" placeholder="Địa chỉ" required>
                         </div>
-                        <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
-                        <div id="button">
-                            <button>
-                                <a>Đặt Hàng</a>
-                            </button>
+                        <div>
+                            <input type="text" :value="window.localStorage.getItem('cart_infor')" name="order_content" required style="display: none;">
                         </div>
+                        <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
+                        <button id="button" type="submit">
+                            <a>Đặt Hàng</a>
+                        </button>
+                        </form>
                     </div>
                 </div>
             </div>
