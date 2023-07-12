@@ -110,6 +110,18 @@
                 <div id="totalContainer" v-if="cart_infor.list.length > 0">
                     <div id="total">
                         <h2>Thông Tin Đơn Hàng</h2>
+                        <div>
+                            <input type="text" name="name" placeholder="Họ và Tên">
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                        <div>
+                            <input type="number" name="phone" placeholder="Số điện thoại">
+                        </div>
+                        <div>
+                            <input type="text" name="address" placeholder="Địa chỉ">
+                        </div>
                         <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
                         <div id="button">
                             <button>
