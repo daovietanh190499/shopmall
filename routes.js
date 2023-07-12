@@ -66,13 +66,10 @@ const appVue = new Vue({
             .then(res => {
                 console.log(res)
                 if(res['result'] === 'success') {
+                    window.localStorage.setItem("cart_infor", JSON.stringify({"list": []}))
+                    this.cart_infor = {"list": []}
                     window.location.replace('/orderPlaced')
                 }
-                window.localStorage.setItem("cart_infor", JSON.stringify({"list": []}))
-                this.cart_infor = {"list": []}
-            })
-            .catch(e => {
-                window.location.replace('/error')
             })
         }
     }
