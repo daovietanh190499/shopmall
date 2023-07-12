@@ -55,15 +55,43 @@
         <!-- OREDER PLACED -->
         <div id="orderContainer" v-if="paths[0] === 'orderPlaced'">
             <div id="check"><i class="fas fa-check-circle"></i></div>
-            
             <div id="aboutCheck">
                 <h1> Đơn hàng được đặt thành công! </h1>
                 <p> Vui lòng kiểm tra email và liên hệ với shop để tiến hành thanh toán </p>
             </div>
         </div>
 
+        <div id="orderContainer" v-if="paths[0] === 'error'">
+            <div id="check"><i class="fas fa-times-circle"></i></div>
+            <div id="aboutCheck">
+                <h1> Có lỗi xảy ra! </h1>
+                <p> Vui lòng kiểm tra lại các giao dịch </p>
+            </div>
+        </div>
+
         <div id="containerProduct" v-else-if="paths[0] === 'product'">
             <!-- JS rendered code -->
+            <div id="containerD">
+                <div id="imageSection">
+                    <img id="imgDetails" v-bind:src="productList[paths[1] - 1].preview"></div>
+                    <div id="productDetails">
+                        <h1>{{ productList[paths[1] - 1].name }}</h1>
+                        <h4>{{ productList[paths[1] - 1].brand }}</h4>
+                        <div id="details">
+                            <h3>VNĐ {{ productList[paths[1] - 1].price }}</h3>
+                            <h3>Mô Tả</h3>
+                            <p>{{ productList[paths[1] - 1].description }}</p>
+                        </div>
+                        <div id="productPreview">
+                            <h3>Xem Trước</h3>
+                            <img id="previewImg" v-for="src in productList[paths[1] - 1].photos" v-bind:src="src">
+                        </div>
+                        <div id="button">
+                            <button>Thêm vào Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="cartMainContainer" v-else-if="paths[0] === 'cart'">
@@ -80,7 +108,7 @@
                     </div>
                 </div>
 
-                <div id="totalContainer">
+                <div id="totalContainer" v-if="cart_infor.list.length > 0">
                     <div id="total">
                         <h2>Thông Tin Đơn Hàng</h2>
                         <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
