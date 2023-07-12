@@ -1,1 +1,174 @@
-404 Not Found
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> SHOPSMON </title>
+    <!-- favicon -->
+    <link rel="icon" href="img/icon.png" type="image/gif" sizes="16x16">
+    <!-- fontawesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/contentDetails.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/orderPlaced.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="js/convert.js"></script>
+</head>
+<body>  
+    <!-- HEADER -->
+    <div id="1">
+        <header>
+            <section>
+                <!-- MAIN CONTAINER -->
+                <div id="container">
+                    <!-- SHOP NAME -->
+                    <div id="shopName"><a href="index.html"> <b style="color: #1ac0da;">SHOP</b>SMON </a></div>
+                        <!-- COLLCETIONS ON WEBSITE -->
+                        <div id="collection">
+                            <div id="clothing"><a href="index.html#containerClothingTitle"> DECOR </a></div>
+                            <div id="accessories"><a href="index.html#containerAccessoriesTitle"> VĂN PHÒNG PHẨM </a></div>
+                        </div>
+                        <!-- SEARCH SECTION -->
+                        <div id="search">
+                            <i class="fas fa-search search"></i>
+                            <input type="text" id="input" name="searchBox" placeholder="Tìm kiếm các Sản phẩm">
+                        </div>
+                        <!-- USER SECTION (CART AND USER ICON) -->
+                        <div id="user">
+                            <a href="cart"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
+                            <!-- <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a> -->
+                        </div>
+                </div>
+
+            </section>
+        </header>
+    </div>
+
+    <div id="root">
+
+        <!-- OREDER PLACED -->
+        <div id="orderContainer" v-if="paths[0] === 'orderPlaced'">
+            <div id="check"><i class="fas fa-check-circle"></i></div>
+            
+            <div id="aboutCheck">
+                <h1> Đơn hàng được đặt thành công! </h1>
+                <p> Vui lòng kiểm tra email và liên hệ với shop để tiến hành thanh toán </p>
+            </div>
+        </div>
+
+        <div id="containerProduct" v-else-if="paths[0] === 'product'">
+            <!-- JS rendered code -->
+        </div>
+
+        <div id="cartMainContainer" v-else-if="paths[0] === 'cart'">
+            <h1> Đơn Hàng </h1>
+            <h3 id="totalItem"> Tổng Sản Phẩm: {{ cart_infor.list.length }} </h3>
+    
+            <div id="cartContainer">
+                <!-- JS rendered code -->
+                <div id="boxContainer">
+                    <div id="box" v-for="item in cart_infor.list">
+                        <img v-bind:src="productList[item.id - 1].preview">
+                        <h3>{{ productList[item.id - 1].name + 'x' + item.counter }}</h3>
+                        <h4>Chi Phí: VNĐ {{ productList[item.id - 1].price }}</h4>
+                    </div>
+                </div>
+
+                <div id="totalContainer">
+                    <div id="total">
+                        <h2>Thông Tin Đơn Hàng</h2>
+                        <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
+                        <div id="button">
+                            <button>
+                                <a>Đặt Hàng</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cartMainContainer" v-else>
+            <h1> 404 NOT FOUND </h1>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div id="4">
+        <footer>
+            <section>    
+                <div id="containerFooter">
+                    
+                    <div id="webFooter">
+                        <h3> Cửa hàng Online </h3>
+                        <p> Decor </p>
+                        <p> Văn Phòng Phẩm </p>
+                    </div>
+    
+                    <div id="webFooter">
+                        <h3> Cửa hàng Online </h3>
+                        <p> Sách Truyện </p>
+                        <p> Mặt Hàng Khác </p>
+                    </div>
+    
+                    <div id="webFooter">
+                        <h3> Địa Chỉ </h3>
+                        <p> 181 Xuân Thủy </p>
+                        <p> Cầu Giấy </p>
+                        <p> Hà Nội </p>
+                        <p> Việt Nam </p>
+                    </div>
+    
+                    <div id="webFooter">
+                        <h3> Liên Hệ </h3>
+                        <p> Phone: 0377669361 </p>
+                        <p> daovietanh19xx@gmail.com </p>
+                        <p> FB: fb.com/cuahangshopsmon </p>
+                    </div>
+                </div>
+                <div id="credit"><a href="https://www.linkedin.com/in/vi%E1%BB%87t-anh-%C4%91%C3%A0o-4a9554235/"> © Shopsmon </a></div>
+            </section>
+        </footer>
+    </div>
+</body>
+
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "104688316028076");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v17.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script src="js/vue.global.js"></script>
+    <script src="routes.js"></script>
+</html>

@@ -59,7 +59,7 @@ let containerAccessories = document.getElementById("containerAccessories");
 // );
 // httpRequest.send();
 
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSmLhRaYOz9RL78AsV4B64MG9f05zdq08TLkVYX8IepFS8HYAEd83Bt-gKOa0iD3xDMJraPTpDIkkID/pubhtml")
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSsxNHL-vaqMMnVoya19qYkWWyHD6y9KXXbWkO7xWE9I665bdEpidMtHM7QhUs_iJSaIhOF2HSOEPTt/pubhtml")
 .then(res => res.text())
 .then(res => {
   let table = document.createElement('div');
