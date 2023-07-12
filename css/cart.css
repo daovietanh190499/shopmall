@@ -13,7 +13,7 @@ body
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
 }
-img
+#box > img
 {
     width: 80px;
     float: left;
@@ -81,7 +81,7 @@ button a:focus
 
 @media(max-width: 800px)
 {
-    img
+    #box > img
     {
         width: 60px;
         margin-right: 20px;
