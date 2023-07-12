@@ -39,13 +39,13 @@ body
 {
     width: 100%;
 }
-h1
+#productDetails h1
 {
     font-size: 35px;
     letter-spacing: 1px;
     word-spacing: 2px;
 }
-h4
+#productDetails h4
 {
     font-size: 15px;
     font-weight: bold;
@@ -99,7 +99,7 @@ button a:focus
 
 @media(max-width: 1300px)
 {
-    h1
+    #productPreview h1
     {
         font-size: 28px;
     }
@@ -121,7 +121,7 @@ button a:focus
 
 @media(max-width: 1170px)
 {
-    h1
+    #productPreview h1
     {
         font-size: 22px;
     }
@@ -136,11 +136,11 @@ button a:focus
         font-size: 15px;
 
     }
-    h4, p
+    #productPreview h4, #productPreview p
     {
         font-size: 13px;
     }
-    h3
+    #productPreview h3
     {
         font-size: 15px;
     }
