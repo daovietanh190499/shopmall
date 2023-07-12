@@ -84,7 +84,7 @@
                         </div>
                         <div id="productPreview">
                             <h3>Xem Trước</h3>
-                            <img id="previewImg" v-for="i, src in productList[paths[1] - 1].photos" :src="src" @click="changePreview(i)">
+                            <img id="previewImg" v-for="src, i in productList[paths[1] - 1].photos" :src="src" @click="changePreview(i)">
                         </div>
                         <div id="button" @click="addToCart(paths[1])">
                             <button>Thêm vào Giỏ hàng</button>
