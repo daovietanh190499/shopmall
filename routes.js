@@ -65,7 +65,15 @@ const appVue = new Vue({
             .then(res => res.json())
             .then(res => {
                 console.log(res)
+                if(res['result'] == 'success') {
+                    window.location = 'orderPlaced'
+                } else {
+                    window.location = 'error'
+                }
                 window.localStorage.setItem("cart_infor", JSON.stringify({"list": []}))
+            })
+            .catch(e => {
+                window.location = 'error'
             })
         }
     }
