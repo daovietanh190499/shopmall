@@ -5,7 +5,13 @@ const appVue = new Vue({
         productList: [],
         cart_infor: {"list": []},
         totalAmount: 0,
-        id_preview: 0
+        id_preview: 0,
+        user: {
+            name: "",
+            phone: "",
+            email: "",
+            address: "",
+        }
     },
     created () {
 
@@ -55,7 +61,7 @@ const appVue = new Vue({
             this.cart_infor = cart_infor
         },
         placeOrder() {
-            fetch(`https://script.google.com/macros/s/AKfycbw7JpGnyfg5JjmA-jaEKX5X-bs87xyEm0j4EsYgMor7a4BUyDHuU94JRduU1UJAoSvJ/exec?name=${"vietanh"}&phone=${"0377669361"}&email=${"daovietanhsky@gmail.com"}&address=${"Từ Hồ, Hưng Yên"}&order_content=${window.localStorage.getItem("cart_infor")}`)
+            fetch(`https://script.google.com/macros/s/AKfycbw7JpGnyfg5JjmA-jaEKX5X-bs87xyEm0j4EsYgMor7a4BUyDHuU94JRduU1UJAoSvJ/exec?name=${this.user.name}&phone=${this.user.phone}&email=${this.user.email}&address=${this.user.address}&order_content=${window.localStorage.getItem("cart_infor")}`)
             .then(res => res.json())
             .then(res => {
                 console.log(res)
