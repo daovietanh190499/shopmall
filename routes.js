@@ -8,8 +8,6 @@ const appVue = new Vue({
         id_preview: 0
     },
     created () {
-        let paths = window.location.pathname.split('/')
-        this.paths = paths.slice(1)
 
         fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSsxNHL-vaqMMnVoya19qYkWWyHD6y9KXXbWkO7xWE9I665bdEpidMtHM7QhUs_iJSaIhOF2HSOEPTt/pubhtml")
         .then(res => res.text())
@@ -29,6 +27,8 @@ const appVue = new Vue({
                 totalAmount += Number(this.productList[cart_infor.list[i].id-1].price) * cart_infor.list[i].counter
             }
             this.totalAmount = totalAmount
+            let paths = window.location.pathname.split('/')
+            this.paths = paths.slice(1)
         })
     },
     methods : {
