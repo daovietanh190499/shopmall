@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <div id="orderContainer" v-if="paths[0] === 'error'">
+        <div id="orderContainer" v-else-if="paths[0] === 'error'">
             <div id="check"><i class="fas fa-times-circle"></i></div>
             <div id="aboutCheck">
                 <h1> Có lỗi xảy ra! </h1>
