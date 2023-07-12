@@ -11,6 +11,17 @@ const appVue = new Vue({
             phone: "",
             email: "",
             address: "",
+        },
+        order: {
+            status: "",
+            code: "",
+            list: [],
+            user: {
+                name: "",
+                phone: "",
+                email: "",
+                address: "",
+            }
         }
     },
     created () {
@@ -35,6 +46,13 @@ const appVue = new Vue({
             this.totalAmount = totalAmount
             let paths = window.location.pathname.split('/')
             this.paths = paths.slice(1)
+            if (this.paths === "order") {
+                fetch("https://script.google.com/macros/s/AKfycbw2XxSFHoJBTDeOvv86IeDl935FMq9inioBTlX4sSUUczbCTRUtJYVff3f0iaQ2oSAV/exec?code=" + this.paths[1])
+                .then(res => res.json())
+                .then(res => {
+                    this.order = res
+                })
+            }
         })
     },
     methods : {

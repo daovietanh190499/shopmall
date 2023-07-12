@@ -123,13 +123,55 @@
                         <div>
                             <input type="text" name="address" placeholder="Địa chỉ" required v-model="user.address">
                         </div>
-                        <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
+                        <h4 id="toth4">Phí Giao Hàng: VNĐ 25000</h4>
+                        <h4 id="toth4">Tổng Chi Phí: VNĐ {{ totalAmount + 25000 }}</h4>
                         <button id="button" type="submit" @click="placeOrder()">
                             <a>Đặt Hàng</a>
                         </button>
                         <button id="button" type="submit" @click="deleteCart()">
                             <a>Xóa giỏ hàng</a>
                         </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cartMainContainer" v-else-if="paths[0] === 'order'">
+            <h1> Đơn Hàng {{ order.code }}</h1>
+            <h3 id="totalItem"> Tổng Sản Phẩm: {{ order.list.length }} </h3>
+    
+            <div id="cartContainer">
+                <!-- JS rendered code -->
+                <div id="boxContainer">
+                    <div id="box" v-for="item in order.list">
+                        <img :src="productList[item.id - 1].preview">
+                        <h3>{{ productList[item.id - 1].name + ' x ' + item.counter }}</h3>
+                        <h4>Chi Phí: VNĐ {{ productList[item.id - 1].price }}</h4>
+                    </div>
+                </div>
+
+                <div id="totalContainer" v-if="order.list.length > 0">
+                    <div id="total">
+                        <h2>Thông Tin Đơn Hàng</h2>
+                        <form action="javascript:void(0);">
+                        <div>
+                            <input type="text" name="name" placeholder="Họ và Tên" required v-model="order.code" disabled>
+                        </div>
+                        <div>
+                            <input type="text" name="name" placeholder="Họ và Tên" required v-model="order.user.name" disabled>
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="Email" required v-model="order.user.email" disabled>
+                        </div>
+                        <div>
+                            <input type="number" name="phone" placeholder="Số điện thoại" required v-model="order.user.phone" disabled>
+                        </div>
+                        <div>
+                            <input type="text" name="address" placeholder="Địa chỉ" required v-model="order.user.address" disabled>
+                        </div>
+                        <h4 id="toth4">Phí Giao Hàng: VNĐ 25000</h4>
+                        <h4 id="toth4">Tổng Chi Phí: VNĐ {{ totalAmount + 25000 }}</h4>
                         </form>
                     </div>
                 </div>
