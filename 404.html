@@ -124,7 +124,7 @@
                             <input type="text" name="address" placeholder="Địa chỉ" required>
                         </div>
                         <div>
-                            <input type="text" :value="window.localStorage.getItem('cart_infor')" name="order_content" required style="display: none;">
+                            <input type="text" :value="JSON.stringify(cart_infor)" name="order_content" required style="display: none;">
                         </div>
                         <h4 id="toth4">Chi Phí: VNĐ {{ totalAmount }}</h4>
                         <button id="button" type="submit">
