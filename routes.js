@@ -4,7 +4,8 @@ const appVue = new Vue({
         paths: "",
         productList: [],
         cart_infor: {"list": []},
-        totalAmount: 0
+        totalAmount: 0,
+        id_preview: 0
     },
     created () {
         let paths = window.location.pathname.split('/')
@@ -30,4 +31,28 @@ const appVue = new Vue({
             this.totalAmount = totalAmount
         })
     },
+    methods : {
+        changePreview(id) {
+            this.id_preview = id
+        },
+        addToCart(id) {
+            let cart = JSON.stringify({"list":[{"id":id, "counter":1}]})
+            let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : cart)
+            if (window.localStorage.getItem("cart_infor")) {
+                let has_item = false
+                for (let i = 0; i < cart_infor.list.length; i ++) {
+                    if (cart_infor.list[i].id == id) {
+                        cart_infor.list[i].counter += 1
+                        has_item = true
+                        break;
+                    }
+                }
+                if (!has_item) {
+                    cart_infor.list.push(JSON.parse(cart).list[0])
+                }
+            }
+            window.localStorage.setItem("cart_infor", JSON.stringify(cart_infor))
+            this.cart_infor = cart_infor
+        }
+    }
 })

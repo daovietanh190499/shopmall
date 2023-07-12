@@ -73,7 +73,7 @@
             <!-- JS rendered code -->
             <div id="containerD">
                 <div id="imageSection">
-                    <img id="imgDetails" v-bind:src="productList[paths[1] - 1].preview"></div>
+                    <img id="imgDetails" :src="productList[paths[1] - 1].photos[id_preview]"></div>
                     <div id="productDetails">
                         <h1>{{ productList[paths[1] - 1].name }}</h1>
                         <h4>{{ productList[paths[1] - 1].brand }}</h4>
@@ -84,9 +84,9 @@
                         </div>
                         <div id="productPreview">
                             <h3>Xem Trước</h3>
-                            <img id="previewImg" v-for="src in productList[paths[1] - 1].photos" v-bind:src="src">
+                            <img id="previewImg" v-for="i, src in productList[paths[1] - 1].photos" :src="src" @click="changePreview(i)">
                         </div>
-                        <div id="button">
+                        <div id="button" @click="addToCart(paths[1])">
                             <button>Thêm vào Giỏ hàng</button>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                 <!-- JS rendered code -->
                 <div id="boxContainer">
                     <div id="box" v-for="item in cart_infor.list">
-                        <img v-bind:src="productList[item.id - 1].preview">
+                        <img :src="productList[item.id - 1].preview">
                         <h3>{{ productList[item.id - 1].name + ' x ' + item.counter }}</h3>
                         <h4>Chi Phí: VNĐ {{ productList[item.id - 1].price }}</h4>
                     </div>
