@@ -16,6 +16,7 @@ const appVue = new Vue({
             status: "",
             code: "",
             list: [],
+            totalAmount: 0,
             user: {
                 name: "",
                 phone: "",
@@ -52,6 +53,11 @@ const appVue = new Vue({
                 .then(res => res.json())
                 .then(res => {
                     this.order = res
+                    totalAmount = 0
+                    for (let i = 0; i < this.order.list.length; i++) {
+                        totalAmount += Number(this.productList[this.order.list[i].id-1].price) * this.order.list[i].counter
+                    }
+                    this.order.totalAmount = totalAmount
                 })
             }
         })
