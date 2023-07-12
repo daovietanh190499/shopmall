@@ -46,8 +46,8 @@ const appVue = new Vue({
             this.totalAmount = totalAmount
             let paths = window.location.pathname.split('/')
             this.paths = paths.slice(1)
-            if (this.paths === "order") {
-                console.log("test ok")
+            if (this.paths[0] === "order") {
+                // console.log("test ok")
                 fetch("https://script.google.com/macros/s/AKfycbw2XxSFHoJBTDeOvv86IeDl935FMq9inioBTlX4sSUUczbCTRUtJYVff3f0iaQ2oSAV/exec?code=" + this.paths[1])
                 .then(res => res.json())
                 .then(res => {
