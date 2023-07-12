@@ -96,12 +96,13 @@ button a:focus
 }
 
 #total input {
-    width: 35em;
+    width: calc( 100% - 1rem);
     height: 3em;
-    padding: 2px 50px;
+    padding-left: 1rem;
     background-color: rgb(241, 241, 241);
     border: none;
     border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
 /* ----------------------------- MEDIA QUERY --------------------------- */
