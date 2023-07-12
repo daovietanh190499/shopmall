@@ -49,7 +49,7 @@ const appVue = new Vue({
             this.paths = paths.slice(1)
             if (this.paths[0] === "order") {
                 // console.log("test ok")
-                fetch("https://script.google.com/macros/s/AKfycbw2XxSFHoJBTDeOvv86IeDl935FMq9inioBTlX4sSUUczbCTRUtJYVff3f0iaQ2oSAV/exec?code=" + this.paths[1])
+                fetch("https://script.google.com/macros/s/AKfycby9P9_oN-ET4dtOZN7rZDs2K9uXQuWSRs2QMBUc1RFbIm46MZq-5Zwc7r-nNpNFkt1h/exec?code=" + this.paths[1])
                 .then(res => res.json())
                 .then(res => {
                     this.order = res
