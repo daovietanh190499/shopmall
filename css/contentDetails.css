@@ -2,7 +2,7 @@ body
 {
     margin: 0;
     text-transform: capitalize;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Josefin Sans', sans-serif !important;
 }
 
 #containerProduct
@@ -37,19 +37,19 @@ body
 
 #productDetails
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     width: 100%;
 }
 #productDetails h1
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 35px;
     letter-spacing: 1px;
     word-spacing: 2px;
 }
 #productDetails h4
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
     font-weight: bold;
     color: rgb(3, 122, 122);
@@ -58,7 +58,7 @@ body
 }
 #productPreview
 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     padding-bottom: 10px;
 }
 #productPreview > img
@@ -84,7 +84,7 @@ body
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif
+    font-family: 'Josefin Sans', sans-serif
 }
 #button a
 {
