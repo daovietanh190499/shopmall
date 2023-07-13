@@ -62,7 +62,7 @@ const appVue = new Vue({
                 })
             } else if (this.paths[0] === "product") {
                 for (let i = 0; i < cart_infor.list.length; i++) {
-                    if (paths[1] == cart_infor.list[i].id) {
+                    if (this.paths[1] == cart_infor.list[i].id) {
                         this.inCart = true
                         break
                     }
