@@ -60,6 +60,8 @@ const appVue = new Vue({
                     this.order.totalAmount = totalAmount
                 })
             }
+
+            document.getElementById("badge").innerHTML = cart_infor['list'].length
         })
     },
     methods : {
