@@ -6,6 +6,7 @@ const appVue = new Vue({
         cart_infor: {"list": []},
         totalAmount: 0,
         id_preview: 0,
+        inCart: false,
         user: {
             name: "",
             phone: "",
@@ -59,6 +60,13 @@ const appVue = new Vue({
                     }
                     this.order.totalAmount = totalAmount
                 })
+            } else if (this.paths[0] === "product") {
+                for (let i = 0; i < cart_infor.list.length; i++) {
+                    if (paths[1] == cart_infor.list[i].id) {
+                        this.inCart = true
+                        break
+                    }
+                }
             }
 
             document.getElementById("badge").innerHTML = cart_infor['list'].length
