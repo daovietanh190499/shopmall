@@ -112,6 +112,9 @@ const appVue = new Vue({
             window.localStorage.setItem("cart_infor", JSON.stringify({"list": []}))
             this.cart_infor = {"list": []}
             window.location.reload()
+        },
+        redirect(url) {
+            window.location.replace(url)
         }
     }
 })
