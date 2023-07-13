@@ -71,7 +71,7 @@ body
     letter-spacing: 1px;
     line-height: 25px;
 } */
-#button button
+#button
 {
     padding: 10px 15px;
     color: white;
@@ -81,16 +81,16 @@ body
     cursor: pointer;
     font-size: 20px;
 }
-#button button a
+#button a
 {
     text-decoration: none;
     font-size: 18px;
 }
-#button button:hover
+#button:hover
 {
     background-color: rgb(3, 94, 94);
 }
-#button button a:focus
+#button a:focus
 {
     outline: none;
 }
@@ -119,7 +119,7 @@ body
         padding: 10px 10px;
         padding-bottom: 30px;
     }
-    #button button
+    #button
     {
         padding: 8px 13px;
         background-color: rgb(3, 122, 122);
@@ -141,7 +141,7 @@ body
         padding: 10px 10px;
         padding-bottom: 30px;
     }
-    #button button a
+    #button a
     {
         font-size: 15px;
 
