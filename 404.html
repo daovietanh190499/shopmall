@@ -106,7 +106,7 @@
             <div id="cartContainer">
                 <!-- JS rendered code -->
                 <div id="boxContainer">
-                    <div id="box" v-for="item, i in cart_infor.list" @click="redirect('/product/' + i)">
+                    <div id="box" v-for="item in cart_infor.list" @click="redirect('/product/' + item.id)">
                         <img :src="productList[item.id - 1].preview">
                         <h3>{{ productList[item.id - 1].name + ' x ' + item.counter }}</h3>
                         <h4>Chi Phí: VNĐ {{ productList[item.id - 1].price }}</h4>
