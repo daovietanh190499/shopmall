@@ -111,8 +111,8 @@ const appVue = new Vue({
         saveCart() {
             window.localStorage.setItem("cart_infor", JSON.stringify(this.cart_infor))
             let totalAmount = 0
-            for (let i = 0; i < cart_infor.list.length; i++) {
-                totalAmount += Number(this.productList[cart_infor.list[i].id-1].price) * cart_infor.list[i].counter
+            for (let i = 0; i < this.cart_infor.list.length; i++) {
+                totalAmount += Number(this.productList[this.cart_infor.list[i].id-1].price) * this.cart_infor.list[i].counter
             }
             this.totalAmount = totalAmount
         },
