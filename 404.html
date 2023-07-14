@@ -111,7 +111,7 @@
                         <img :src="productList[item.id - 1].preview" @click="redirect('/product/' + item.id)">
                         <h3 style="display: flex;"> 
                             <p @click="redirect('/product/' + item.id)"> {{ productList[item.id - 1].name + ' x '}} </p>
-                            <input type="number" v-model="item.counter" /> 
+                            <input type="number" v-model="item.counter" @change="saveCart()"/> 
                         </h3>
                         <h4>Chi Phí: VNĐ {{ productList[item.id - 1].price }}</h4>
                     </div>

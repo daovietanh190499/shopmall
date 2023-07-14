@@ -108,6 +108,9 @@ const appVue = new Vue({
                 }
             })
         },
+        saveCart() {
+            window.localStorage.setItem("cart_infor", JSON.stringify(this.cart_infor))
+        },
         deleteCart() {
             window.localStorage.setItem("cart_infor", JSON.stringify({"list": []}))
             this.cart_infor = {"list": []}
