@@ -29,8 +29,9 @@ body
     /* float: left; */
 }
 #boxContainer input {
-    margin: 0 1rem;
+    margin: 1em 1rem;
     text-align: center;
+    height: 2rem;
 }
 #box
 {
