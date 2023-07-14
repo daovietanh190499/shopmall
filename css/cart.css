@@ -28,6 +28,10 @@ body
     width: 100%;
     /* float: left; */
 }
+#boxContainer input {
+    margin: 0 1rem;
+    text-align: center;
+}
 #box
 {
     background-color: white;
