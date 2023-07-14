@@ -118,6 +118,11 @@ const appVue = new Vue({
         },
         redirect(url) {
             window.location.replace(url)
+            let totalAmount = 0
+            for (let i = 0; i < cart_infor.list.length; i++) {
+                totalAmount += Number(this.productList[cart_infor.list[i].id-1].price) * cart_infor.list[i].counter
+            }
+            this.totalAmount = totalAmount
         }
     }
 })
