@@ -50,7 +50,8 @@ const appVue = new Vue({
             this.paths = paths.slice(1)
             if (this.paths[0] === "order") {
                 // console.log("test ok")
-                fetch("https://script.google.com/macros/s/AKfycby9P9_oN-ET4dtOZN7rZDs2K9uXQuWSRs2QMBUc1RFbIm46MZq-5Zwc7r-nNpNFkt1h/exec?code=" + this.paths[1])
+                // fetch("https://script.google.com/macros/s/AKfycby9P9_oN-ET4dtOZN7rZDs2K9uXQuWSRs2QMBUc1RFbIm46MZq-5Zwc7r-nNpNFkt1h/exec?code=" + this.paths[1])
+                fetch("https://script.google.com/macros/s/AKfycbxE687IM2lVBYOacvXH25mQCZT9rI9diHF3l540a9QhNGD5Kfkxi1iBcBvsPklmTd8/exec?code=" + this.paths[1])
                 .then(res => res.json())
                 .then(res => {
                     this.order = res
@@ -97,7 +98,7 @@ const appVue = new Vue({
             window.location.reload()
         },
         placeOrder() {
-            fetch(`https://script.google.com/macros/s/AKfycbw7JpGnyfg5JjmA-jaEKX5X-bs87xyEm0j4EsYgMor7a4BUyDHuU94JRduU1UJAoSvJ/exec?name=${this.user.name}&phone=${this.user.phone}&email=${this.user.email}&address=${this.user.address}&order_content=${window.localStorage.getItem("cart_infor")}`)
+            fetch(`https://script.google.com/macros/s/AKfycbxE687IM2lVBYOacvXH25mQCZT9rI9diHF3l540a9QhNGD5Kfkxi1iBcBvsPklmTd8/exec?name=${this.user.name}&phone=${this.user.phone}&email=${this.user.email}&address=${this.user.address}&order_content=${window.localStorage.getItem("cart_infor")}`, {method: "POST"})
             .then(res => res.json())
             .then(res => {
                 console.log(res)
