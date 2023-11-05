@@ -1,6 +1,8 @@
 const appVue = new Vue({
     el: '#root',
     data: {
+        url1: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSsxNHL-vaqMMnVoya19qYkWWyHD6y9KXXbWkO7xWE9I665bdEpidMtHM7QhUs_iJSaIhOF2HSOEPTt/pubhtml",
+        url2: "https://script.google.com/macros/s/AKfycbxE687IM2lVBYOacvXH25mQCZT9rI9diHF3l540a9QhNGD5Kfkxi1iBcBvsPklmTd8/exec",
         paths: "",
         productList: [],
         cart_infor: {"list": []},
@@ -28,7 +30,7 @@ const appVue = new Vue({
     },
     created () {
 
-        fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSsxNHL-vaqMMnVoya19qYkWWyHD6y9KXXbWkO7xWE9I665bdEpidMtHM7QhUs_iJSaIhOF2HSOEPTt/pubhtml")
+        fetch(this.url1)
         .then(res => res.text())
         .then(res => {
             let table = document.createElement('div');
@@ -49,9 +51,7 @@ const appVue = new Vue({
             let paths = window.location.pathname.split('/')
             this.paths = paths.slice(1)
             if (this.paths[0] === "order") {
-                // console.log("test ok")
-                // fetch("https://script.google.com/macros/s/AKfycby9P9_oN-ET4dtOZN7rZDs2K9uXQuWSRs2QMBUc1RFbIm46MZq-5Zwc7r-nNpNFkt1h/exec?code=" + this.paths[1])
-                fetch("https://script.google.com/macros/s/AKfycbxE687IM2lVBYOacvXH25mQCZT9rI9diHF3l540a9QhNGD5Kfkxi1iBcBvsPklmTd8/exec?code=" + this.paths[1])
+                fetch(`${this.url2}?code=` + this.paths[1])
                 .then(res => res.json())
                 .then(res => {
                     this.order = res
@@ -98,7 +98,7 @@ const appVue = new Vue({
             window.location.reload()
         },
         placeOrder() {
-            fetch(`https://script.google.com/macros/s/AKfycbxE687IM2lVBYOacvXH25mQCZT9rI9diHF3l540a9QhNGD5Kfkxi1iBcBvsPklmTd8/exec?name=${this.user.name}&phone=${this.user.phone}&email=${this.user.email}&address=${this.user.address}&order_content=${window.localStorage.getItem("cart_infor")}`, {method: "POST"})
+            fetch(`${this.url2}?name=${this.user.name}&phone=${this.user.phone}&email=${this.user.email}&address=${this.user.address}&order_content=${window.localStorage.getItem("cart_infor")}`, {method: "POST"})
             .then(res => res.json())
             .then(res => {
                 console.log(res)
