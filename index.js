@@ -79,11 +79,13 @@ function callSearchAPI(query){
     for (let i = 0; i < contentTitle.length; i++) {
       if (contentTitle[i].Is_Accessory === "t") {
         console.log(contentTitle[i]);
+        containerAccessories.innerHTML = ""
         containerAccessories.appendChild(
           dynamicClothingSection(contentTitle[i])
         );
       } else {
         console.log(contentTitle[i]);
+        containerClothing.innerHTML = ""
         containerClothing.appendChild(
           dynamicClothingSection(contentTitle[i])
         );
