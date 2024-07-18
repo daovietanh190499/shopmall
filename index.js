@@ -59,7 +59,7 @@ let containerAccessories = document.getElementById("containerAccessories");
 // );
 // httpRequest.send();
 function searchProduct(){
-  query = document.getElementById("search_input").value
+  query = document.getElementById("input").value
   callSearchAPI(query)
 }
 
