@@ -14,21 +14,21 @@ function dynamicClothingSection(ob) {
   let imgTag = document.createElement("img");
   // imgTag.id = 'image1'
   // imgTag.id = ob.photos
-  imgTag.src = ob.preview;
+  imgTag.src = ob.Preview;
 
   let detailsDiv = document.createElement("div");
   detailsDiv.id = "details";
 
   let h3 = document.createElement("h3");
-  let h3Text = document.createTextNode(ob.name);
+  let h3Text = document.createTextNode(ob.Name);
   h3.appendChild(h3Text);
 
   let h4 = document.createElement("h4");
-  let h4Text = document.createTextNode(ob.brand);
+  let h4Text = document.createTextNode(ob.Brand);
   h4.appendChild(h4Text);
 
   let h2 = document.createElement("h2");
-  let h2Text = document.createTextNode("VNĐ  " + ob.price);
+  let h2Text = document.createTextNode("VNĐ  " + ob.Price);
   h2.appendChild(h2Text);
 
   boxDiv.appendChild(boxLink);
@@ -77,7 +77,7 @@ function callSearchAPI(query){
     document.getElementById("badge").innerHTML = cart_infor.list.length
   
     for (let i = 0; i < contentTitle.length; i++) {
-      if (contentTitle[i].is_accessory === "t") {
+      if (contentTitle[i].Is_Accessory === "t") {
         console.log(contentTitle[i]);
         containerAccessories.appendChild(
           dynamicClothingSection(contentTitle[i])
