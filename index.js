@@ -80,7 +80,7 @@ function callSearchAPI(query){
     containerClothing.innerHTML = ""
     for (let i = 0; i < contentTitle.length; i++) {
       if (contentTitle[i].Is_Accessory === "t") {
-        console.log(contentTitle[i])
+        console.log(contentTitle[i]);
         containerAccessories.appendChild(
           dynamicClothingSection(contentTitle[i])
         );
