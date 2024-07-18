@@ -1,9 +1,10 @@
 const appVue = new Vue({
     el: '#root',
     data: {
-        url1: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSsxNHL-vaqMMnVoya19qYkWWyHD6y9KXXbWkO7xWE9I665bdEpidMtHM7QhUs_iJSaIhOF2HSOEPTt/pubhtml",
-        url2: "https://script.google.com/macros/s/AKfycbxE687IM2lVBYOacvXH25mQCZT9rI9diHF3l540a9QhNGD5Kfkxi1iBcBvsPklmTd8/exec",
+        url1: "https://script.google.com/macros/s/AKfycby9cMXkQ6RETVHt1p0ZOW3G6m7_VT3Usf-3lQQdn4l4qpGWrLK9gRHQoQD66CoQEQ/exec",
+        url2: "https://script.google.com/macros/s/AKfycby9cMXkQ6RETVHt1p0ZOW3G6m7_VT3Usf-3lQQdn4l4qpGWrLK9gRHQoQD66CoQEQ/exec",
         paths: "",
+        search_query: "",
         productList: [],
         cart_infor: {"list": []},
         totalAmount: 0,
@@ -31,13 +32,9 @@ const appVue = new Vue({
     created () {
 
         fetch(this.url1)
-        .then(res => res.text())
+        .then(res => res.json())
         .then(res => {
-            let table = document.createElement('div');
-            let table_content = res.slice(res.indexOf("<table"), res.indexOf("table>") + 6)
-            table.innerHTML = table_content
-            let rows = convert(table.childNodes[0])
-            this.productList = rows
+            this.productList = res['data']
 
             let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : JSON.stringify({"list": []}))
             this.cart_infor = cart_infor
@@ -51,7 +48,7 @@ const appVue = new Vue({
             let paths = window.location.pathname.split('/')
             this.paths = paths.slice(1)
             if (this.paths[0] === "order") {
-                fetch(`${this.url2}?code=` + this.paths[1])
+                fetch(`${this.url2}?code=` + this.paths[1], {"method": "POST"})
                 .then(res => res.json())
                 .then(res => {
                     this.order = res
@@ -77,6 +74,13 @@ const appVue = new Vue({
         changePreview(id) {
             this.id_preview = id
         },
+        searchProduct() {
+            fetch(this.url1 + "?query=" + this.search_query)
+            .then(res => res.json())
+            .then(res => {
+                this.productList = res['data']
+            })
+        }
         addToCart(id) {
             let cart = JSON.stringify({"list":[{"id":id, "counter":1}]})
             let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : cart)
