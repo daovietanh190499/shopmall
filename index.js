@@ -91,3 +91,5 @@ function callSearchAPI(query){
     }
   })
 }
+
+callSearchAPI("")
