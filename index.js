@@ -75,17 +75,17 @@ function callSearchAPI(query){
   
     let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : JSON.stringify({"list": []}))
     document.getElementById("badge").innerHTML = cart_infor.list.length
-  
+
+    containerAccessories.innerHTML = ""
+    containerClothing.innerHTML = ""
     for (let i = 0; i < contentTitle.length; i++) {
       if (contentTitle[i].Is_Accessory === "t") {
-        console.log(contentTitle[i]);
-        containerAccessories.innerHTML = ""
+        console.log(contentTitle[i]))
         containerAccessories.appendChild(
           dynamicClothingSection(contentTitle[i])
         );
       } else {
         console.log(contentTitle[i]);
-        containerClothing.innerHTML = ""
         containerClothing.appendChild(
           dynamicClothingSection(contentTitle[i])
         );
