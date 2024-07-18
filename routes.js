@@ -80,7 +80,7 @@ const appVue = new Vue({
             .then(res => {
                 this.productList = res['data']
             })
-        }
+        },
         addToCart(id) {
             let cart = JSON.stringify({"list":[{"id":id, "counter":1}]})
             let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : cart)
