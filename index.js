@@ -58,32 +58,36 @@ let containerAccessories = document.getElementById("containerAccessories");
 //   true
 // );
 // httpRequest.send();
+function searchProduct(){
+  query = document.getElementById("search_input").value
+  callSearchAPI(query)
+}
 
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSsxNHL-vaqMMnVoya19qYkWWyHD6y9KXXbWkO7xWE9I665bdEpidMtHM7QhUs_iJSaIhOF2HSOEPTt/pubhtml")
-.then(res => res.text())
-.then(res => {
-  let table = document.createElement('div');
-  let table_content = res.slice(res.indexOf("<table"), res.indexOf("table>") + 6)
-  table.innerHTML = table_content
-  let rows = convert(table.childNodes[0])
-  console.log(rows)
-
-  contentTitle = rows
-
-  let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : JSON.stringify({"list": []}))
-  document.getElementById("badge").innerHTML = cart_infor.list.length
-
-  for (let i = 0; i < contentTitle.length; i++) {
-    if (contentTitle[i].is_accessory === "t") {
-      console.log(contentTitle[i]);
-      containerAccessories.appendChild(
-        dynamicClothingSection(contentTitle[i])
-      );
-    } else {
-      console.log(contentTitle[i]);
-      containerClothing.appendChild(
-        dynamicClothingSection(contentTitle[i])
-      );
-    }
+function callSearchAPI(query){
+  let query_str = ""
+  if (query && query.length > 0) {
+    query_str = "?query=" + query
   }
-})
+  fetch("https://script.google.com/macros/s/AKfycby9cMXkQ6RETVHt1p0ZOW3G6m7_VT3Usf-3lQQdn4l4qpGWrLK9gRHQoQD66CoQEQ/exec" + query_str)
+  .then(res => res.json())
+  .then(res => {
+    contentTitle = res['data']
+  
+    let cart_infor = JSON.parse(window.localStorage.getItem("cart_infor") ? window.localStorage.getItem("cart_infor") : JSON.stringify({"list": []}))
+    document.getElementById("badge").innerHTML = cart_infor.list.length
+  
+    for (let i = 0; i < contentTitle.length; i++) {
+      if (contentTitle[i].is_accessory === "t") {
+        console.log(contentTitle[i]);
+        containerAccessories.appendChild(
+          dynamicClothingSection(contentTitle[i])
+        );
+      } else {
+        console.log(contentTitle[i]);
+        containerClothing.appendChild(
+          dynamicClothingSection(contentTitle[i])
+        );
+      }
+    }
+  })
+}
