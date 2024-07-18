@@ -14,7 +14,7 @@ function dynamicClothingSection(ob) {
   let imgTag = document.createElement("img");
   // imgTag.id = 'image1'
   // imgTag.id = ob.photos
-  imgTag.src = ob.Preview;
+  imgTag.src = ob.preview;
 
   let detailsDiv = document.createElement("div");
   detailsDiv.id = "details";
